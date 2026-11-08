@@ -1,0 +1,8 @@
+.gradle/
+.gradle-user/
+.android/
+.tools/
+local.properties
+**/build/
+*.jks
+/qa/

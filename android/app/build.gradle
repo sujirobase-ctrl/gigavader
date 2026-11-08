@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.application'
+    id 'com.chaquo.python'
+}
+
+android {
+    namespace 'com.sujirobase.buidl'
+    compileSdk 36
+    buildToolsVersion '36.0.0'
+    defaultConfig {
+        applicationId 'com.sujirobase.buidl'
+        minSdk 24
+        targetSdk 35
+        versionCode 200
+        versionName '2.0.0'
+        ndk { abiFilters 'arm64-v8a', 'x86_64' }
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures { buildConfig true }
+    buildTypes {
+        qa {
+            initWith debug
+            applicationIdSuffix '.qa'
+            matchingFallbacks = ['debug']
+        }
+    }
+    testBuildType project.hasProperty('qa') ? 'qa' : 'debug'
+}
+
+// Copy only the desktop engine, never cookies, downloads, EXEs or the Tk UI.
+tasks.register('stagePythonEngine', Sync) {
+    from('../../src') {
+        include '**/*.py'
+        exclude 'desktop.py', 'preview.py', 'preview_gui.py', 'video_preview.py', 'video_preview_gui.py'
+    }
+    into(layout.buildDirectory.dir('generated/python/src'))
+}
+chaquopy {
+    defaultConfig {
+        version '3.14'
+        def configuredPython = System.getenv('CHAQUOPY_PYTHON')
+        def localPython = rootProject.file('../.venv/Scripts/python.exe')
+        buildPython configuredPython ?: (localPython.exists() ? localPython.absolutePath : 'python3.12')
+        pip {
+            install 'requests==2.32.5'
+            install 'beautifulsoup4==4.14.3'
+        }
+    }
+    sourceSets {
+        main {
+            srcDir 'src/main/python'
+            srcDir layout.buildDirectory.dir('generated/python')
+        }
+    }
+}
+tasks.configureEach {
+    if (name.contains('Python') && name != 'stagePythonEngine') { dependsOn 'stagePythonEngine' }
+}
+dependencies {
+    implementation 'org.mozilla:rhino:1.8.0'
+    implementation 'androidx.core:core:1.16.0'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test:core:1.6.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+}

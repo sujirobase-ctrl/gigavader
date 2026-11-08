@@ -1,0 +1,102 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>BUIDL</title>
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none';"><style>
+:root{--bg:#f3f4fa;--sf:#fff;--s2:#eceef7;--tx:#171a2b;--mu:#6b7090;--bd:#e0e3f0;--ac:#5b4fe9;--al:#5b4fe9;--ok:#12805c;--wa:#a35f00;--er:#c13a3a;--hi:#ebe9ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0e16;--sf:#141726;--s2:#1b1f33;--tx:#e9ebf5;--mu:#8b91ab;--bd:#242840;--ac:#6a5df5;--al:#a79eff;--ok:#4ade9a;--wa:#f0b04a;--er:#f58585;--hi:#1f1d44;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c0e16;--sf:#141726;--s2:#1b1f33;--tx:#e9ebf5;--mu:#8b91ab;--bd:#242840;--ac:#6a5df5;--al:#a79eff;--ok:#4ade9a;--wa:#f0b04a;--er:#f58585;--hi:#1f1d44;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.5 "Plus Jakarta Sans","Segoe UI",system-ui,sans-serif}
+svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sb{padding:26px 14px 18px;background:var(--sf);border-right:1px solid var(--bd);position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px}
+.lg{padding:0 10px 26px}.lg b{font-size:24px;font-weight:800;letter-spacing:-.02em;display:block;line-height:1}.lg span{font-size:11px;color:var(--al);font-weight:600}
+.nv{display:flex;align-items:center;gap:11px;width:100%;padding:10px 12px;border:0;border-radius:10px;background:none;color:var(--mu);font:inherit;font-weight:600;cursor:pointer;text-align:left}
+.nv:hover{background:var(--s2)}.nv.on{background:var(--ac);color:#fff}
+.n{margin-left:auto;background:var(--s2);color:var(--tx);border-radius:9px;padding:0 7px;font-size:11px}.n:empty{display:none}.nv.on .n{background:rgba(255,255,255,.25);color:#fff}
+.sbf{margin-top:auto;padding:0 10px;display:grid;gap:10px}
+.mn{padding:40px 44px;max-width:900px;width:100%;margin:0 auto}
+h1{font-size:28px;font-weight:800;letter-spacing:-.025em;margin:0 0 6px}h2{font-size:15px;margin:0 0 14px}.mu{color:var(--mu)}.sm{font-size:12px}.ok{color:var(--ok)}.wa{color:var(--wa)}.er{color:var(--er)}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:18px;padding:22px;margin-bottom:16px}
+button,input,select{font:inherit;color:inherit}
+button{padding:9px 16px;border:1px solid var(--bd);border-radius:10px;background:var(--sf);cursor:pointer;font-weight:600}button:hover:not(:disabled){background:var(--s2)}
+button.p{background:var(--ac);border-color:var(--ac);color:#fff}button.p:hover:not(:disabled){filter:brightness(1.1);background:var(--ac)}button.g{border-color:transparent;background:none;color:var(--mu)}button:disabled{opacity:.4;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--al);outline-offset:2px}
+input[type=text],input[type=number],input[type=search],select{width:100%;padding:11px 14px;border:1px solid var(--bd);border-radius:10px;background:var(--bg)}
+label.f{display:block;font-size:12px;color:var(--mu);margin:16px 0 6px;font-weight:600}label.f.t{margin-top:0}
+.fr{display:flex;gap:8px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sws{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin-top:20px}
+.acts{display:flex;gap:10px;margin-top:24px}.acts button{height:50px;font-size:15px;border-radius:12px}.acts .p{flex:1}.acts button:not(.p){flex:1}
+.seg{display:inline-flex;background:var(--s2);border-radius:10px;padding:3px}.seg button{border:0;background:none;padding:6px 14px;border-radius:8px;color:var(--mu)}.seg button.on{background:var(--ac);color:#fff}.seg.c{display:flex;width:max-content;margin:0 auto 22px}
+.sw{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:500}.sw input{position:absolute;opacity:0}.sw i{width:34px;height:20px;border-radius:99px;background:var(--bd);position:relative;flex:none;transition:.15s}.sw i::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:.15s}.sw input:checked+i{background:var(--ac)}.sw input:checked+i::after{left:17px}.sw input:focus-visible+i{outline:2px solid var(--al);outline-offset:2px}
+.al{font-size:12px;padding:3px 0;display:flex;gap:6px;align-items:center}
+.ph{display:flex;align-items:center;gap:14px;margin-bottom:6px}.ph .gr{flex:1}
+.pc{display:inline-block;margin:0 5px 5px 0;padding:3px 11px;border-radius:99px;border:1px solid var(--bd);background:none;font-size:12px;color:var(--mu);font-weight:500}.pc.on{background:var(--hi);color:var(--al);border-color:var(--ac)}
+details>summary{cursor:pointer;color:var(--al);list-style:none;font-size:13px;font-weight:600;margin:8px 0}details>summary::-webkit-details-marker{display:none}
+.tb{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 14px}.tb input[type=search]{width:210px}.tb select{width:auto}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:18px 14px}
+.th{position:relative;aspect-ratio:4/3;border-radius:14px;display:grid;place-items:center;cursor:pointer;color:rgba(255,255,255,.75);margin-bottom:7px}.th svg{width:30px;height:30px}.th.s{outline:3px solid var(--ac);outline-offset:2px}
+.th .ck{position:absolute;top:9px;left:9px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.8);display:grid;place-items:center;color:#fff}.th.s .ck{background:var(--ac);border-color:var(--ac)}.ck svg{width:12px;height:12px;stroke-width:3;opacity:0}.th.s .ck svg{opacity:1}
+.th .ex{position:absolute;top:7px;right:7px;width:26px;height:26px;padding:0;border:0;border-radius:50%;background:rgba(0,0,0,.4);color:#fff;display:grid;place-items:center;opacity:0}.th:hover .ex,.ex:focus-visible{opacity:1}.ex svg{width:13px;height:13px}
+.th b{position:absolute;right:9px;bottom:9px;font-size:11px;background:rgba(0,0,0,.55);color:#fff;padding:3px 9px;border-radius:99px;font-weight:600}
+.nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px;font-weight:600}
+.pgn{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:22px}
+.foot{position:sticky;bottom:calc(14px + env(safe-area-inset-bottom,0px));margin-top:20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:12px 14px;box-shadow:0 10px 30px rgba(0,0,0,.2)}.foot .gr{flex:1;font-weight:600}
+.pb{height:6px;background:var(--s2);border-radius:4px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ac);border-radius:4px;transition:width .3s}.pb.l{height:10px;margin:18px 0}
+.ctl{display:flex;gap:8px;flex-wrap:wrap}.sts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.sts>div{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:10px 14px}.sts span{font-size:12px;color:var(--mu);display:block}.sts b{font-size:16px}
+.it{display:grid;grid-template-columns:36px 1fr 140px 130px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--bd)}.it:last-child{border:0}.ic{width:36px;height:36px;border-radius:10px;background:var(--s2);display:grid;place-items:center;color:var(--mu)}
+.fc{border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap}.fc div{flex:1 1 260px}
+.emp{text-align:center;color:var(--mu);padding:44px 10px}
+.md{position:fixed;inset:0;background:rgba(5,6,12,.65);display:grid;place-items:center;z-index:9;padding:16px}.md[hidden]{display:none}.md>div{background:var(--sf);border:1px solid var(--bd);border-radius:18px;padding:24px;width:min(460px,100%);max-height:90vh;overflow:auto}
+.pl{height:190px;background:var(--s2);border-radius:12px;display:grid;place-items:center;margin:14px 0;overflow:hidden;position:relative;color:var(--mu)}.pl svg{width:40px;height:40px}.pl i{position:absolute;left:0;bottom:0;height:4px;background:var(--ac);width:0}
+#toast{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:9px 18px;border-radius:99px;z-index:10;display:none;font-size:13px;font-weight:600}
+.log-text{display:block;width:100%;height:240px;margin:12px 0;border:0;background:var(--s2);color:inherit;border-radius:10px;padding:12px;font:12px/1.5 monospace;resize:vertical;user-select:text}
+.log-text[hidden]{display:none}
+#rp{height:156px}
+.timing-scroll{overflow:auto;max-height:420px}.timing-table{width:100%;border-collapse:collapse;font-size:12px}.timing-table td,.timing-table th{border-bottom:1px solid var(--bd);padding:8px;text-align:left;white-space:nowrap}.timing-table td:first-child{min-width:180px;white-space:normal;overflow-wrap:anywhere}.timing-table th{background:var(--sf);position:sticky;top:0}
+@media(max-width:820px){.app{display:block}.sb{position:static;height:auto;flex-direction:row;overflow-x:auto;padding:10px;border:0;border-bottom:1px solid var(--bd)}.lg,.sbf{display:none}.nv{width:auto;white-space:nowrap}.mn{padding:22px 16px}.g2,.g3,.sws{grid-template-columns:1fr}.acts{flex-direction:column}.it{grid-template-columns:36px 1fr 110px}.it .pr{display:none}.sts{grid-template-columns:repeat(2,1fr)}}
+button,input,select{min-width:0}.fr input{min-width:0}.gal>div{min-width:0}.th{min-width:0;overflow:hidden}.th img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;border-radius:0}.th .ck,.th .ex,.th b{z-index:1}.th:focus-visible{outline:3px solid var(--ac)}.it>div{min-width:0}.nm{overflow:hidden}.busy{color:var(--al)}
+</style></head><body><div class="app">
+<aside class="sb"><div class="lg"><b>BUIDL</b><span>Media downloader</span></div><div id="nav"></div>
+<div class="sbf"><label class="sw"><input type="checkbox" id="th"><i></i>Modo claro</label><span class="mu sm">v2.0.0 · Nova interface</span></div></aside>
+<main class="mn">
+<section id="t-novo">
+<div id="v-home"><h1>Baixar uma thread</h1><p class="mu" style="margin:0 0 26px">Cole a URL, ajuste as opções e deixe o BUIDL cuidar do restante.</p>
+<div class="card"><div class="seg c" id="adv"><button class="on" data-a="0">Principal</button><button data-a="1">Avançado</button></div>
+<div id="pp"><label class="f t" for="url">URL da thread</label><input type="text" id="url" placeholder="https://forum.../threads/...">
+<div class="g2"><div><label class="f" for="ckn">Cookies (opcional)</label><div class="fr"><input type="text" id="ckn" readonly placeholder="Nenhum arquivo"><button id="ckb">Procurar</button></div><input type="file" id="ck" accept=".txt,.json,.cookies" hidden><div class="ctl" style="margin-top:8px"><button id="ck-login">Entrar no SimpCity</button><button id="ck-verify" disabled>Verificar sessão</button></div><div id="ckst" class="sm" role="status" style="margin-top:6px"></div><div id="wr"></div></div>
+<div><label class="f" for="dst">Pasta de destino</label><div class="fr"><input type="text" id="dst" value="C:\Users\voce\Downloads\BUIDL"><button id="dsb">Procurar</button></div></div></div>
+<div class="sws"><label class="sw"><input type="checkbox" id="sa" checked><i></i>Todas as páginas</label><label class="sw"><input type="checkbox" id="sp"><i></i>Separar posts</label><label class="sw"><input type="checkbox" id="pu"><i></i>Pasta única</label><label class="sw"><input type="checkbox" id="so"><i></i>Somente simular</label></div></div>
+<div id="pa" hidden><div class="g3"><div><label class="f t" for="c1">Downloads simultâneos</label><input type="number" id="c1" min="1" max="8" value="3"></div><div><label class="f t" for="c2">Conexões por arquivo</label><input type="number" id="c2" min="1" max="8" value="2"></div><div><label class="f t" for="c4">Tentativas</label><input type="number" id="c4" min="1" max="10" value="3"></div>
+<div><label class="f" for="pl">Limite de páginas</label><input type="number" id="pl" min="1" max="10000" value="3" disabled></div><div><label class="f" for="c3">Intervalo entre requisições (s)</label><input type="number" id="c3" min="0" max="10" step=".5" value="1"></div><div><label class="f" for="c5">Limite de velocidade (MB/s)</label><input type="number" id="c5" min="0" max="100" value="0" placeholder="0 = livre"></div></div>
+<div class="g2"><div><label class="f" for="inc">Incluir (termos separados por vírgula)</label><input type="text" id="inc" placeholder="jpg, mp4, clip"></div><div><label class="f" for="exc">Excluir</label><input type="text" id="exc" placeholder="thumb, avatar"></div></div>
+<div class="sws"><label class="sw"><input type="checkbox" id="rs" checked><i></i>Retomada automática</label><label class="sw"><input type="checkbox" id="vf" checked disabled><i></i>Reaproveitar concluídos (sempre ativo)</label></div></div>
+<div class="acts"><button id="vz">Visualizar e escolher</button><button class="p" id="an">Baixar tudo</button></div>
+<div style="text-align:center"><button class="g" id="bk" hidden style="margin-top:8px">Voltar para a galeria</button></div></div></div>
+
+<div id="v-pick" hidden><div class="ph"><button class="g" id="back" style="padding-left:0">← Voltar sem baixar</button><span class="gr"></span><button id="up">Atualizar thread</button></div><h1 id="pt1"></h1><p class="mu" id="pt2" style="margin:0"></p>
+<div id="res"></div>
+<div class="tb"><input type="search" id="sq" placeholder="Buscar nome, post ou host" aria-label="Buscar"><div class="seg" id="ft"><button data-t="*" class="on">Todos</button><button data-t="img">Imagens</button><button data-t="vid">Vídeos</button><button data-t="audio">Áudios</button><button data-t="arq">Arquivos</button></div><select id="fh" aria-label="Host"><option value="*">Todos os hosts</option></select></div>
+<div class="gal" id="gal"></div>
+<div class="pgn"><button class="g" id="pv1">← Anterior</button><span class="mu sm" id="pgi"></span><button class="g" id="pv2">Próxima →</button></div>
+<div class="foot"><span class="gr" id="cnt"></span><button class="g" id="sv">Marcar resultados</button><button class="g" id="dv">Desmarcar</button><button id="enqa">Baixar todos</button><button class="p" id="enq">Baixar selecionados</button></div></div></section>
+
+<section id="t-down" hidden><div class="emp" id="dne"><h1>Nada em andamento</h1>Analise uma thread e escolha o que baixar.</div>
+<div id="dn" hidden><h1 id="d1"></h1><p class="mu" id="d2" style="margin:0"></p><div class="pb l"><i id="bp" style="width:0"></i></div>
+<div class="ctl"><button class="p" id="bm">Iniciar</button><button id="b4">Cancelar</button><button id="b5" hidden>Tentar falhas de novo</button><button id="bf" hidden class="er">Ver falhas</button><button class="g" id="bd">Detalhes</button><button class="g" id="bo">Abrir pasta</button></div>
+<div class="sts" id="bs" hidden></div><p class="mu sm" id="sv2" style="margin:14px 0 10px"></p><div id="qb"></div>
+<details id="act"><summary>Registro de atividades</summary><button type="button" data-copy-log="lg2">Copiar atividades</button><textarea id="lg2" class="log-text" aria-label="Registro de atividades" readonly spellcheck="false"></textarea></details></div></section>
+
+<section id="t-hist" hidden><h1>Histórico</h1><p class="mu" style="margin:0 0 22px">Threads anteriores.</p><div class="card" id="hb"></div></section>
+<section id="t-diag" hidden><h1>Diagnóstico</h1><p class="mu" style="margin:0 0 22px">BUIDL 2.0.0 · Interface 1.4.5 promovida</p><div class="card"><div class="ctl"><button id="ol">Abrir log</button><button id="cl" data-copy-log="lg" hidden>Copiar log</button><button id="xr">Exportar relatório</button><button id="cp" data-copy-log="rp" hidden>Copiar relatório</button></div><p class="mu sm">O log pode conter links e caminhos locais. O relatório remove links, cookies, pastas e tokens.</p><textarea id="lg" class="log-text" aria-label="Log do diagnóstico" readonly spellcheck="false" hidden></textarea><textarea id="rp" class="log-text" aria-label="Relatório sanitizado" readonly spellcheck="false" hidden></textarea></div>
+<div class="card"><h2>Tempos por arquivo</h2><div class="ctl"><button id="timing-refresh">Ver tempos</button><button id="timing-export">Exportar tempos (CSV)</button></div><p id="timing-summary" class="mu sm">Consulte o início, o fim da tentativa, o tempo de download e a vazão medida. O CSV inclui os nomes dos arquivos.</p><div id="timing-list" class="timing-scroll"></div></div></section>
+</main></div>
+
+<div class="md" id="rec" hidden><div><h2 style="font-size:18px">Continuar a tarefa interrompida?</h2><p style="margin:10px 0 18px;line-height:1.7"><b id="rt"></b><br><span class="mu sm" id="ri"></span></p><div style="display:flex;gap:8px;justify-content:flex-end"><button id="rd">Dispensar</button><button class="p" id="rc">Continuar tarefa</button></div></div></div>
+<div class="md" id="fm" hidden><div style="width:min(560px,100%)"><h2 style="font-size:18px" id="ft2">Falhas</h2><div id="fl"></div><div class="pgn"><button id="fail-prev">←</button><span id="fail-page"></span><button id="fail-next">→</button></div><div style="display:flex;gap:8px;justify-content:flex-end"><button id="fa">Tentar todas de novo</button><button class="p" id="fx">Fechar</button></div></div></div>
+<div class="md" id="md" hidden><div style="text-align:center;width:min(1000px,96vw);height:90vh;display:flex;flex-direction:column"><b id="mt"></b><div class="pl" style="flex:1;min-height:0;height:auto"><img id="video-frame" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center" hidden><svg viewBox="0 0 24 24"><rect x="2" y="5" width="14" height="14" rx="3"/><path d="m22 8-6 4 6 4z"/></svg><i id="pvb"></i></div><p class="mu sm" id="pvs"></p><div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="p" id="pr">Reproduzir</button><button id="pa2">Tentar novamente</button><button id="mc">Voltar à galeria</button></div></div></div><div id="toast" role="status"></div>
+
+<div class="md" id="image-modal" hidden><div style="width:min(1000px,96vw);height:90vh;display:flex;flex-direction:column;gap:12px;overflow:hidden">
+<div style="display:flex;align-items:center;gap:16px"><b id="image-name" class="nm" style="flex:1"></b><button id="image-close" aria-label="Fechar imagem">Fechar ×</button></div>
+<div style="flex:1;min-height:0;position:relative;background:var(--bg);border-radius:12px"><img id="full-image" alt="" hidden style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain"></div>
+<div style="display:flex;align-items:center;gap:12px"><span id="image-message" class="mu sm" style="flex:1" role="status"></span><button id="image-retry">Tentar novamente</button></div>
+</div></div>

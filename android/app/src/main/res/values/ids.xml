@@ -1,0 +1,12 @@
+<resources>
+    <item type="id" name="url_thread"/><item type="id" name="status_download"/>
+    <item type="id" name="baixar_selecionados"/><item type="id" name="analisar_thread"/>
+    <item type="id" name="pasta_destino"/><item type="id" name="escolher_pasta_destino"/>
+    <item type="id" name="usar_pasta_app"/><item type="id" name="capturar_cookies"/>
+    <item type="id" name="galeria_opcoes"/><item type="id" name="aparencia"/>
+    <item type="id" name="opcoes_avancadas"/><item type="id" name="busca_galeria"/>
+    <item type="id" name="origem_cookies"/><item type="id" name="salvar_cookies"/>
+    <item type="id" name="instrucao_cookies"/><item type="id" name="navegador_cookies"/>
+    <item type="id" name="incluir_arquivos"/><item type="id" name="ignorar_arquivos"/>
+    <item type="id" name="downloads_simultaneos"/><item type="id" name="tipo_arquivo"/>
+</resources>

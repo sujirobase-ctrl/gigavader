@@ -1,0 +1,58 @@
+# Secrets and local data
+**/cookies.txt
+cookies.txt
+*.cookies
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Downloads, logs and user state
+Downloads/
+**/Downloads/
+session.log
+simpcity.log
+*.log
+.fpd_state.json
+.fpd_state.jsonl
+
+# Python and build output
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_cache/**
+build/
+dist/
+*.egg-info/
+
+# Android/Gradle/QA outputs
+android/.gradle/
+android/build/
+android/app/build/
+android/qa/
+
+# Local scratch
+Temp/
+_ref/
+CHATLOG.md
+URLs.txt
+
+# Release/build outputs and temporary QA data
+*.exe
+*.apk
+release/
+tests/_tmp/
+tests/_tmp_*/
+
+# Local login and diagnostic artifacts
+*.buidl-session
+*.har
+*.saz
+cookie-check.json
+settings.json
+history.json
+BUIDL-diagnostico.txt
+BUIDL-tempos.csv
